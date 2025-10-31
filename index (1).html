@@ -260,7 +260,7 @@
         <div class="package-card">
           <div class="package-badge">FORMATION</div>
           <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="fr">Formation & Workshops</h3>
-          <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="en">Training & Workshops</h3>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem)" data-lang="en">Training & Workshops</h3>
           <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Pour professionnels et étudiants</p>
           <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">For professionals and students</p>
           
@@ -376,7 +376,7 @@
           <div style="display:inline-block;padding:.35rem .85rem;background:#FF6B35;color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Brand content Audit & note of Intent</div>
           <h3 style="font-size:1.3rem;margin-bottom:.5rem;">HPS Worldwide</h3>
           <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant · Fintech Payment Tech B2B</p>
-          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Independent consultant · Fintech Payment Tech B2B</p>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:.md;" data-lang="en">Independent consultant · Fintech Payment Tech B2B</p>
           <p data-lang="fr">Audit marque/marché pour éditeur payment tech. Stakeholder mapping, competitive analysis, messaging house et stratégie éditoriale 90j pour PowerCARD platform.</p>
           <p data-lang="en">Brand/market audit for payment tech publisher. Stakeholder mapping, competitive analysis, messaging house and 90-day editorial strategy for PowerCARD platform.</p>
           <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);">
@@ -570,7 +570,6 @@ function switchLang(lang) {
   localStorage.setItem('preferred-language', lang);
 }
 
-// Load saved language preference
 const savedLang = localStorage.getItem('preferred-language');
 if (savedLang) {
   switchLang(savedLang);
