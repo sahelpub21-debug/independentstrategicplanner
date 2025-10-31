@@ -260,7 +260,7 @@
         <div class="package-card">
           <div class="package-badge">FORMATION</div>
           <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="fr">Formation & Workshops</h3>
-          <h3 style="font-size:1.5rem;margin-bottom:.5rem)" data-lang="en">Training & Workshops</h3>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="en">Training & Workshops</h3>
           <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Pour professionnels et étudiants</p>
           <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">For professionals and students</p>
           
@@ -326,7 +326,7 @@
       <div class="portfolio-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--md);margin-top:var(--lg);">
         <!-- Glovo -->
         <div class="card">
-          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/Glovo_Case%20Study.png" alt="Glovo Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <img src="https://github.com/sahelpub21-debug/zakariagallouch/blob/main/Glovo_Case%20Study.png?raw=true" alt="Glovo Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
           <div style="display:inline-block;padding:.35rem .85rem;background:var(--accent-purple);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Monthly retainer</div>
           <h3 style="font-size:1.3rem;margin-bottom:.5rem;">Glovo</h3>
           <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant · Cellule de veille & contenu</p>
@@ -343,7 +343,7 @@
 
         <!-- ATDA -->
         <div class="card">
-          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/ATDA_Case_study.jpg" alt="ATDA Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <img src="https://github.com/sahelpub21-debug/zakariagallouch/blob/main/ATDA_Case_study.jpg?raw=true" alt="ATDA Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
           <div style="display:inline-block;padding:.35rem .85rem;background:var(--accent-green);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">On Project</div>
           <h3 style="font-size:1.3rem;margin-bottom:.5rem;">ATDA</h3>
           <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant, Client: CIO Mag · Assises africaines de la transformation digitale</p>
@@ -358,7 +358,7 @@
 
         <!-- Fan4All -->
         <div class="card">
-          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/Fan4all_case_study.jpeg" alt="Fan4All Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <img src="https://github.com/sahelpub21-debug/zakariagallouch/blob/main/Fan4all_case_study.jpeg?raw=true" alt="Fan4All Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
           <div style="display:inline-block;padding:.35rem .85rem;background:var(--primary);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Monthly retainer</div>
           <h3 style="font-size:1.3rem;margin-bottom:.5rem;">Fan4All</h3>
           <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);">Head of Comms · Marketplace SportTech</p>
@@ -376,7 +376,7 @@
           <div style="display:inline-block;padding:.35rem .85rem;background:#FF6B35;color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Brand content Audit & note of Intent</div>
           <h3 style="font-size:1.3rem;margin-bottom:.5rem;">HPS Worldwide</h3>
           <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant · Fintech Payment Tech B2B</p>
-          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:.md;" data-lang="en">Independent consultant · Fintech Payment Tech B2B</p>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Independent consultant · Fintech Payment Tech B2B</p>
           <p data-lang="fr">Audit marque/marché pour éditeur payment tech. Stakeholder mapping, competitive analysis, messaging house et stratégie éditoriale 90j pour PowerCARD platform.</p>
           <p data-lang="en">Brand/market audit for payment tech publisher. Stakeholder mapping, competitive analysis, messaging house and 90-day editorial strategy for PowerCARD platform.</p>
           <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);">
@@ -570,6 +570,7 @@ function switchLang(lang) {
   localStorage.setItem('preferred-language', lang);
 }
 
+// Load saved language preference
 const savedLang = localStorage.getItem('preferred-language');
 if (savedLang) {
   switchLang(savedLang);
