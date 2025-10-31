@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zakaria Gallouch — Consultant Communication Stratégique</title>
+  <style>
+    :root{
+      --primary:#0066FF; --primary-light:#3385FF;
+      --text-primary:#0A0D14; --text-secondary:#4A5568; --text-tertiary:#718096;
+      --bg:#FFFFFF; --bg-subtle:#F7F9FC; --border:#E2E8F0;
+      --accent-green:#10B981; --accent-purple:#8B5CF6;
+      --xs:.5rem; --sm:1rem; --md:1.5rem; --lg:2.5rem; --xl:4rem; --xxl:6rem;
+      --radius:12px; --shadow-sm:0 1px 3px rgba(0,0,0,.05); --shadow-md:0 4px 12px rgba(0,0,0,.08); --shadow-lg:0 10px 30px rgba(0,0,0,.1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','SF Pro Display',system-ui,sans-serif;color:var(--text-primary);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .eyebrow{font-size:.875rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--primary);margin-bottom:var(--sm);display:inline-block}
+    h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:var(--md)}
+    h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:var(--lg)}
+    h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:600;line-height:1.3;letter-spacing:-.01em;margin-bottom:var(--sm)}
+    h4{font-size:1.125rem;font-weight:600;margin-bottom:.5rem;color:var(--text-primary)}
+    p{font-size:1.075rem;color:var(--text-secondary);line-height:1.7}
+    .lead{font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.6;color:var(--text-secondary);max-width:65ch}
+
+    .container{max-width:1200px;margin:0 auto;padding:0 var(--md)}
+    section{padding:var(--xl) 0}
+    @media(min-width:768px){section{padding:var(--xxl) 0}}
+
+    .hero{padding:var(--xxl) 0;position:relative}
+    .hero-content{position:relative;z-index:2}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--xs);padding:var(--xs) var(--md);background:var(--bg-subtle);border:1px solid var(--border);border-radius:100px;font-size:.875rem;font-weight:500;color:var(--text-secondary);margin-bottom:.35rem}
+    .status-dot{width:8px;height:8px;background:var(--accent-green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+    .gradient-text{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--lg);margin-top:var(--xl)}
+    .stat-value{font-size:2.3rem;font-weight:700;color:var(--text-primary);line-height:1;margin-bottom:.4rem}
+    .stat-label{font-size:.9rem;color:var(--text-tertiary);font-weight:500}
+
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 1.75rem;border-radius:var(--radius);font-size:1rem;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff;box-shadow:var(--shadow-sm)}
+    .btn-primary:hover{background:var(--primary-light);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .btn-secondary{background:var(--bg-subtle);color:var(--text-primary);border:1px solid var(--border)}
+    .btn-secondary:hover{background:#fff;border-color:var(--primary)}
+    .cta-group{display:flex;flex-wrap:wrap;gap:var(--md);margin-top:var(--lg)}
+
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:var(--lg);transition:all .3s}
+    .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+    .grid{display:grid;gap:var(--lg)}
+    @media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr}}
+
+    .package-card{background:#fff;border:2px solid var(--border);border-radius:var(--radius);padding:var(--lg);transition:all .3s;position:relative;display:flex;flex-direction:column}
+    .package-card:hover{border-color:var(--primary);box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+    .package-badge{display:inline-block;padding:.25rem .75rem;background:var(--primary);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:var(--md)}
+    .package-price{font-size:2.5rem;font-weight:700;color:var(--text-primary);margin-bottom:.5rem}
+    .package-price small{font-size:1rem;color:var(--text-tertiary);font-weight:500}
+
+    .feature-list{list-style:none;margin-top:var(--md)}
+    .feature-list li{padding-left:1.5rem;position:relative;margin-bottom:.8rem;color:var(--text-secondary)}
+    .feature-list li::before{content:'✓';position:absolute;left:0;color:var(--accent-green);font-weight:700;font-size:1.2rem}
+
+    .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--lg);align-items:center;justify-items:center;margin-top:var(--lg)}
+    .logo-item{padding:var(--sm);background:#fff;border:1px solid var(--border);border-radius:8px;width:100%;height:80px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text-tertiary);font-size:.875rem;transition:all .2s}
+    .logo-item:hover{border-color:var(--primary);transform:translateY(-2px)}
+
+    .process-step{display:flex;gap:var(--md);margin-bottom:var(--xl);align-items:start}
+    .step-icon{flex-shrink:0;width:56px;height:56px;background:var(--bg-subtle);border:2px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+
+    .cta-section{background:linear-gradient(135deg,var(--primary) 0%,var(--accent-purple) 100%);border-radius:var(--radius);padding:var(--xxl);text-align:center;color:#fff}
+    .cta-section h2{color:#fff}.cta-section p{color:rgba(255,255,255,.9);margin-bottom:var(--lg)}.cta-section .btn-primary{background:#fff;color:var(--primary)}.cta-section .btn-primary:hover{background:var(--bg-subtle)}
+    
+    footer{padding:var(--xl) 0;border-top:1px solid var(--border);text-align:center}
+    .social-links{display:flex;justify-content:center;gap:var(--md);margin-bottom:var(--md)}
+    .social-links a{width:40px;height:40px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);text-decoration:none;transition:all .2s}
+    .social-links a:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px)}
+
+    .skill-tag{display:inline-block;padding:.5rem 1rem;background:#fff;border:1px solid var(--border);border-radius:6px;font-size:.875rem;font-weight:500;color:var(--text-secondary);transition:all .2s;margin:.25rem}
+    .skill-tag:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+
+    @media(max-width:767px){
+      h1{font-size:2rem}
+      .hero-stats{grid-template-columns:repeat(2,1fr)}
+      .cta-group{flex-direction:column}
+      .btn{width:100%;justify-content:center}
+      .grid-3{grid-template-columns:1fr}
+      h2{font-size:1.7rem}
+      .grid-2{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:1fr!important}
+      .grid[style*="repeat(2,1fr)"]{grid-template-columns:1fr!important}
+    }
+
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .animate-in{animation:fadeInUp .6s ease-out}
+    .gradient-bg{position:absolute;width:100%;height:100%;top:0;left:0;z-index:0;overflow:hidden;pointer-events:none}
+    .gradient-bg::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(0,102,255,.08) 0%,transparent 70%);top:-300px;right:-200px;border-radius:50%}
+    .gradient-bg::after{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.08) 0%,transparent 70%);bottom:-100px;left:-100px;border-radius:50%}
+
+    /* Language switcher */
+    [lang="fr"] [data-lang="en"] { display: none; }
+    [lang="en"] [data-lang="fr"] { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky header -->
+  <header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);box-shadow:var(--shadow-sm);">
+    <div class="container" style="padding:var(--sm) var(--md);">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <a href="https://linkedin.com/in/zakaria-gallouch" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:.75rem;">
+          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/zg_profil.png" alt="Zakaria Gallouch" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--border);">
+          <span style="font-size:1rem;font-weight:700;color:var(--text-primary);">Zakaria Gallouch</span>
+        </a>
+        <div style="display:flex;gap:.5rem;background:#fff;border:1px solid var(--border);border-radius:100px;padding:.25rem;">
+          <button onclick="switchLang('fr')" id="btn-fr" style="padding:.5rem 1rem;border:none;background:var(--primary);color:#fff;font-weight:600;font-size:.875rem;cursor:pointer;border-radius:100px;transition:all .2s;font-family:inherit;">FR</button>
+          <button onclick="switchLang('en')" id="btn-en" style="padding:.5rem 1rem;border:none;background:transparent;color:var(--text-secondary);font-weight:600;font-size:.875rem;cursor:pointer;border-radius:100px;transition:all .2s;font-family:inherit;">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="gradient-bg"></div>
+    <div class="container">
+      <div class="hero-content animate-in">
+        <div class="hero-badge">
+          <span class="status-dot"></span>
+          <span data-lang="fr">Casablanca, Morocco & Remote</span>
+          <span data-lang="en">Casablanca, Morocco & Remote</span>
+        </div>
+        <h1>
+          <span data-lang="fr">Independent Strategic<br>Planner</span>
+          <span data-lang="en">Independent Strategic<br>Planner</span>
+        </h1>
+        <p class="lead" data-lang="fr">
+          Brand Management — Content Marketing — PR — Marketing digital
+        </p>
+        <p class="lead" data-lang="en">
+          Brand Management — Content Marketing — PR — Digital Marketing
+        </p>
+        <p data-lang="fr" style="margin-top:var(--sm)">
+          10+ ans d'expérience EMEA, trilingue FR/EN/AR. J'accompagne les entreprises tech, marketplaces et éditeurs SaaS dans la structuration de leur communication stratégique : positionnement de marque, relations presse, content marketing funnel, campagnes multicanales et SEO. De l'audit initial à l'exécution opérationnelle, en formats souples (mission express, package foundation ou retainer mensuel) avec livrables concrets et résultats mesurables.
+        </p>
+        <p data-lang="en" style="margin-top:var(--sm)">
+          10+ years of EMEA experience, trilingual FR/EN/AR. I support tech companies, marketplaces and SaaS publishers in structuring their strategic communications: brand positioning, press relations, content marketing funnel, multichannel campaigns and SEO. From initial audit to operational execution, in flexible formats (express mission, foundation package or monthly retainer) with concrete deliverables and measurable results.
+        </p>
+
+        <div class="cta-group">
+          <a href="https://calendly.com/gallouch-zakaria/30-min-consultation" target="_blank" class="btn btn-primary">
+            <span data-lang="fr">Planifier un échange</span>
+            <span data-lang="en">Schedule a call</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-value">300K€</div>
+            <div class="stat-label">PR Value</div>
+          </div>
+          <div>
+            <div class="stat-value">+28%</div>
+            <div class="stat-label" data-lang="fr">Conversion Rate</div>
+            <div class="stat-label" data-lang="en">Conversion Rate</div>
+          </div>
+          <div>
+            <div class="stat-value">6</div>
+            <div class="stat-label" data-lang="fr">Years in agency environment</div>
+            <div class="stat-label" data-lang="en">Years in agency environment</div>
+          </div>
+          <div>
+            <div class="stat-value">50+</div>
+            <div class="stat-label" data-lang="fr">Marques accompagnées</div>
+            <div class="stat-label" data-lang="en">Brands supported</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section style="background:var(--bg-subtle);">
+    <div class="container">
+      <div class="eyebrow">Packages</div>
+      <h2 data-lang="fr">Formats d'intervention</h2>
+      <h2 data-lang="en">Service packages</h2>
+
+      <div class="grid" style="grid-template-columns:repeat(2,1fr);">
+        <!-- Entry Package -->
+        <div class="package-card">
+          <div class="package-badge">ENTRY</div>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;">Brand & Content Audit</h3>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Durée : 2–3 jours</p>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Duration: 2–3 days</p>
+          
+          <ul class="feature-list">
+            <li data-lang="fr">Audit de positionnement (≈5 pages)</li>
+            <li data-lang="en">Positioning audit (≈5 pages)</li>
+            <li data-lang="fr">Analyse de performance des contenus</li>
+            <li data-lang="en">Content performance analysis</li>
+            <li data-lang="fr">10 recommandations "quick wins"</li>
+            <li data-lang="en">10 "quick wins" recommendations</li>
+            <li data-lang="fr">Panorama concurrentiel (3 acteurs)</li>
+            <li data-lang="en">Competitive landscape (3 players)</li>
+          </ul>
+          
+          <div class="package-price" style="margin-top:auto;padding-top:var(--lg);"><span style="text-decoration:line-through;color:var(--text-tertiary);font-size:1.8rem;margin-right:.5rem;">3 500</span>2 000 MAD</div>
+        </div>
+
+        <!-- Foundation Package -->
+        <div class="package-card" style="border-color:var(--primary);">
+          <div class="package-badge">FOUNDATION</div>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;">Inbound Marketing Foundations</h3>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Durée : 5–7 jours</p>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Duration: 5–7 days</p>
+          
+          <ul class="feature-list">
+            <li data-lang="fr">Buyer personas (2–3 profils)</li>
+            <li data-lang="en">Buyer personas (2–3 profiles)</li>
+            <li data-lang="fr">Piliers de contenus & stratégie éditoriale</li>
+            <li data-lang="en">Content pillars & editorial strategy</li>
+            <li data-lang="fr">Message House (message central + 3 piliers)</li>
+            <li data-lang="en">Message House (core message + 3 pillars)</li>
+            <li data-lang="fr">Calendrier éditorial 3 mois</li>
+            <li data-lang="en">3-month editorial calendar</li>
+            <li data-lang="fr">Etude SEO (20–30 mots-clés)</li>
+            <li data-lang="en">SEO study (20–30 keywords)</li>
+            <li data-lang="fr">Netlinking et shortlist médias</li>
+            <li data-lang="en">Netlinking and media shortlist</li>
+          </ul>
+          
+          <div class="package-price" style="margin-top:auto;padding-top:var(--lg);"><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="fr">à partir de</small><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="en">from</small><br>7 000 MAD</div>
+        </div>
+
+        <!-- Retainer Package -->
+        <div class="package-card">
+          <div class="package-badge">RETAINER</div>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;">Monthly Content & PR Management</h3>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Durée : au mois (renouvelable)</p>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Duration: monthly (renewable)</p>
+          
+          <ul class="feature-list">
+            <li data-lang="fr">4 contenus optimisés / mois</li>
+            <li data-lang="en">4 optimized contents / month</li>
+            <li data-lang="fr">2 communiqués ou media pitches / mois</li>
+            <li data-lang="en">2 press releases or media pitches / month</li>
+            <li data-lang="fr">Rapport mensuel (trafic, engagement, leads)</li>
+            <li data-lang="en">Monthly report (traffic, engagement, leads)</li>
+            <li data-lang="fr">Support messaging ad-hoc</li>
+            <li data-lang="en">Ad-hoc messaging support</li>
+            <li data-lang="fr">Veille & monitoring de crise</li>
+            <li data-lang="en">Crisis monitoring & response</li>
+          </ul>
+          
+          <div class="package-price" style="margin-top:auto;padding-top:var(--lg);"><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="fr">à partir de</small><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="en">from</small><br>6 500 MAD</div>
+        </div>
+
+        <!-- Formation & Workshops Package -->
+        <div class="package-card">
+          <div class="package-badge">FORMATION</div>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="fr">Formation & Workshops</h3>
+          <h3 style="font-size:1.5rem;margin-bottom:.5rem;" data-lang="en">Training & Workshops</h3>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Pour professionnels et étudiants</p>
+          <p style="font-size:.9rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">For professionals and students</p>
+          
+          <ul class="feature-list">
+            <li>Content operations</li>
+            <li data-lang="fr">Communications stratégiques</li>
+            <li data-lang="en">Strategic communications</li>
+            <li data-lang="fr">Gestion de crise</li>
+            <li data-lang="en">Crisis communications</li>
+            <li>Inbound Marketing</li>
+            <li data-lang="fr">Sessions adaptées aux besoins</li>
+            <li data-lang="en">Customized sessions</li>
+            <li data-lang="fr">Études de cas pratiques</li>
+            <li data-lang="en">Practical case studies</li>
+          </ul>
+          
+          <div class="package-price" style="margin-top:auto;padding-top:var(--lg);"><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="fr">sur devis</small><small style="font-size:1rem;font-weight:500;color:var(--text-tertiary);" data-lang="en">on quote</small></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:var(--xl);">
+        <div class="cta-group" style="justify-content:center;">
+          <a href="https://calendly.com/gallouch-zakaria/30-min-consultation" target="_blank" class="btn btn-primary">
+            <span data-lang="fr">Demander un devis</span>
+            <span data-lang="en">Request a quote</span>
+          </a>
+          <a href="https://calendly.com/gallouch-zakaria/30-min-consultation" target="_blank" class="btn btn-secondary">
+            <span data-lang="fr">Planifier un échange</span>
+            <span data-lang="en">Schedule a call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Références -->
+  <section>
+    <div class="container">
+      <div class="eyebrow" data-lang="fr">Références</div>
+      <div class="eyebrow" data-lang="en">References</div>
+      <h2 data-lang="fr">Marques & institutions accompagnées</h2>
+      <h2 data-lang="en">Brands & institutions supported</h2>
+      
+      <div class="logo-grid">
+        <div class="logo-item">Tanger Med</div>
+        <div class="logo-item">VISA</div>
+        <div class="logo-item">CIO Mag</div>
+        <div class="logo-item">IKEA</div>
+        <div class="logo-item">Glovo</div>
+        <div class="logo-item">ATDA</div>
+        <div class="logo-item">ABL Aviation</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section style="background:var(--bg-subtle);">
+    <div class="container">
+      <div class="eyebrow">Portfolio</div>
+      <h2 data-lang="fr">Sélection de projets</h2>
+      <h2 data-lang="en">Selected projects</h2>
+
+      <div class="portfolio-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--md);margin-top:var(--lg);">
+        <!-- Glovo -->
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/Glovo_Case%20Study.png" alt="Glovo Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <div style="display:inline-block;padding:.35rem .85rem;background:var(--accent-purple);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Monthly retainer</div>
+          <h3 style="font-size:1.3rem;margin-bottom:.5rem;">Glovo</h3>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant · Cellule de veille & contenu</p>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Independent consultant · Monitoring & content unit</p>
+          <p data-lang="fr">Structure d'une cellule de veille communication et marché pour relier insights, réputation et action éditoriale. Conception de la série « Humans of Glovo » en réponse aux tensions diplomatiques Maroc-Espagne.</p>
+          <p data-lang="en">Structured a communication and market monitoring unit to connect insights, reputation and editorial action. Designed "Humans of Glovo" series in response to Morocco-Spain diplomatic tensions.</p>
+          <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);display:flex;gap:var(--md);flex-wrap:wrap;">
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="fr"><strong style="color:var(--text-primary);">+7M</strong> reach organique</div>
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="en"><strong style="color:var(--text-primary);">+7M</strong> organic reach</div>
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="fr"><strong style="color:var(--accent-green);">Positive</strong> sentiment</div>
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="en"><strong style="color:var(--accent-green);">Positive</strong> sentiment</div>
+          </div>
+        </div>
+
+        <!-- ATDA -->
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/ATDA_Case_study.jpg" alt="ATDA Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <div style="display:inline-block;padding:.35rem .85rem;background:var(--accent-green);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">On Project</div>
+          <h3 style="font-size:1.3rem;margin-bottom:.5rem;">ATDA</h3>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant, Client: CIO Mag · Assises africaines de la transformation digitale</p>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Independent consultant, Client: CIO Mag · African Digital Transformation Summit</p>
+          <p data-lang="fr">Pilotage de la stratégie de communication et relations presse avec une communauté d'influenceurs africains. Production du documentaire « Rêve d'Afrique » transformé en série de capsules courtes.</p>
+          <p data-lang="en">Led communication and PR strategy with a community of African influencers. Produced "Rêve d'Afrique" documentary transformed into short video series.</p>
+          <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);">
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="fr">Contenu co-créé avec <strong style="color:var(--text-primary);">8 décideurs Tech</strong> en Afrique</div>
+            <div style="font-size:.875rem;color:var(--text-tertiary);" data-lang="en">Content co-created with <strong style="color:var(--text-primary);">8 Tech decision-makers</strong> in Africa</div>
+          </div>
+        </div>
+
+        <!-- Fan4All -->
+        <div class="card">
+          <img src="https://raw.githubusercontent.com/sahelpub21-debug/zakariagallouch/main/Fan4all_case_study.jpeg" alt="Fan4All Case Study" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:var(--md);">
+          <div style="display:inline-block;padding:.35rem .85rem;background:var(--primary);color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Monthly retainer</div>
+          <h3 style="font-size:1.3rem;margin-bottom:.5rem;">Fan4All</h3>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);">Head of Comms · Marketplace SportTech</p>
+          <p data-lang="fr">Repositionnement de « passion foot » vers lifestyle plus fédérateur. Étude personas, benchmark, optimisation UX et funnels de content marketing. Stratégie RP générant +300K€ de PR Value.</p>
+          <p data-lang="en">Repositioned from "football passion" to broader lifestyle positioning. Persona study, benchmark, UX optimization and content marketing funnels. PR strategy generating +€300K PR Value.</p>
+          <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);display:flex;gap:var(--md);">
+            <div style="font-size:.875rem;color:var(--text-tertiary);"><strong style="color:var(--text-primary);">300K€</strong> PR Value</div>
+            <div style="font-size:.875rem;color:var(--text-tertiary);"><strong style="color:var(--text-primary);">+28%</strong> Conversion Rate</div>
+          </div>
+        </div>
+
+        <!-- HPS -->
+        <div class="card">
+          <div style="width:100%;height:180px;background:linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);border-radius:8px;margin-bottom:var(--md);display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:700;color:#fff;">HPS</div>
+          <div style="display:inline-block;padding:.35rem .85rem;background:#FF6B35;color:#fff;border-radius:100px;font-size:.75rem;font-weight:700;margin-bottom:var(--md);">Brand content Audit & note of Intent</div>
+          <h3 style="font-size:1.3rem;margin-bottom:.5rem;">HPS Worldwide</h3>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="fr">Consultant indépendant · Fintech Payment Tech B2B</p>
+          <p style="font-size:.875rem;color:var(--text-tertiary);margin-bottom:var(--md);" data-lang="en">Independent consultant · Fintech Payment Tech B2B</p>
+          <p data-lang="fr">Audit marque/marché pour éditeur payment tech. Stakeholder mapping, competitive analysis, messaging house et stratégie éditoriale 90j pour PowerCARD platform.</p>
+          <p data-lang="en">Brand/market audit for payment tech publisher. Stakeholder mapping, competitive analysis, messaging house and 90-day editorial strategy for PowerCARD platform.</p>
+          <div style="margin-top:var(--md);padding-top:var(--md);border-top:1px solid var(--border);">
+            <a href="https://sahelpub21-debug.github.io/HPS/" target="_blank" style="font-size:.875rem;color:var(--primary);text-decoration:none;font-weight:600;" data-lang="fr">Note de cadrage →</a>
+            <a href="https://sahelpub21-debug.github.io/HPS/" target="_blank" style="font-size:.875rem;color:var(--primary);text-decoration:none;font-weight:600;" data-lang="en">Project Brief →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:var(--xl);">
+        <a href="https://yti.my.canva.site/zg-portfolio" target="_blank" class="btn btn-secondary">
+          <span data-lang="fr">Recevoir Portfolio</span>
+          <span data-lang="en">Get Portfolio</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approche -->
+  <section style="background:var(--bg-subtle);">
+    <div class="container">
+      <div class="eyebrow">Approche</div>
+      <h2 data-lang="fr">Conseil stratégique & accompagnement opérationnel</h2>
+      <h2 data-lang="en">Strategic consulting & operational support</h2>
+      
+      <p class="lead" data-lang="fr">
+        À l'intersection produit-marketing-communication pour aligner la marque au produit, clarifier la valeur pour les parties prenantes et accélérer la conversion, en formats souples avec résultats mesurables.
+      </p>
+      <p class="lead" data-lang="en">
+        At the intersection of product-marketing-communications to align brand with product, clarify value for stakeholders and accelerate conversion, in flexible formats with measurable results.
+      </p>
+
+      <div class="grid grid-2" style="margin-top:var(--xl);">
+        <div class="process-step">
+          <div class="step-icon">🎯</div>
+          <div>
+            <h3 style="font-size:1.3rem;">Positionnement & Message House</h3>
+            <p data-lang="fr">Analyse marché, cartographie concurrentielle, messages par persona. Objectifs : alignement interne, lisibilité externe, accélération commerciale.</p>
+            <p data-lang="en">Market analysis, competitive mapping, persona-based messaging. Objectives: internal alignment, external clarity, sales acceleration.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-icon">✍️</div>
+          <div>
+            <h3 style="font-size:1.3rem;">Copywriting & Creative Direction</h3>
+            <p data-lang="fr">Lignes éditoriales et ton, scripts (LP, emails, ads, PR), gabarits d'assets, creative briefs & storyboards, QA éditoriale.</p>
+            <p data-lang="en">Editorial guidelines and tone, scripts (LP, emails, ads, PR), asset templates, creative briefs & storyboards, editorial QA.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-icon">🔄</div>
+          <div>
+            <h3 style="font-size:1.3rem;">Communications Stratégiques</h3>
+            <p data-lang="fr">Coordination Product × Sales × Marketing (EMEA), gestion des parties prenantes, adaptation culturelle/réglementaire, pilotage en environnement matriciel.</p>
+            <p data-lang="en">Product × Sales × Marketing coordination (EMEA), stakeholder management, cultural/regulatory adaptation, matrix environment leadership.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-icon">📊</div>
+          <div>
+            <h3 style="font-size:1.3rem;">Inbound Marketing</h3>
+            <p data-lang="fr">Conception & pilotage intégrés (email, paid, content, partnerships, SEO), A/B testing, attribution multi-touch, itérations rapides orientées pipeline & revenu.</p>
+            <p data-lang="en">Integrated design & management (email, paid, content, partnerships, SEO), A/B testing, multi-touch attribution, rapid pipeline & revenue-oriented iterations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences & Stack -->
+  <section>
+    <div class="container">
+      <div class="eyebrow" data-lang="fr">Compétences & Stack</div>
+      <div class="eyebrow" data-lang="en">Skills & Stack</div>
+      <h2 data-lang="fr">Outils & expertises</h2>
+      <h2 data-lang="en">Tools & expertise</h2>
+
+      <div style="margin-top:var(--lg);">
+        <h4 style="margin-bottom:var(--md);" data-lang="fr">Marketing & stratégie de marque</h4>
+        <h4 style="margin-bottom:var(--md);" data-lang="en">Marketing & brand strategy</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+          <span class="skill-tag">Positionnement & Message House</span>
+          <span class="skill-tag">Go-to-Market</span>
+          <span class="skill-tag" data-lang="fr">Pilotage de campagnes</span>
+          <span class="skill-tag" data-lang="en">Campaign management</span>
+          <span class="skill-tag" data-lang="fr">Stratégie de contenus</span>
+          <span class="skill-tag" data-lang="en">Content strategy</span>
+          <span class="skill-tag" data-lang="fr">Parcours utilisateur</span>
+          <span class="skill-tag" data-lang="en">User journey</span>
+          <span class="skill-tag" data-lang="fr">Analyse parties prenantes</span>
+          <span class="skill-tag" data-lang="en">Stakeholder analysis</span>
+          <span class="skill-tag" data-lang="fr">Veille concurrentielle</span>
+          <span class="skill-tag" data-lang="en">Competitive intelligence</span>
+          <span class="skill-tag" data-lang="fr">Architecture de marque</span>
+          <span class="skill-tag" data-lang="en">Brand architecture</span>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--lg);">
+        <h4 style="margin-bottom:var(--md);" data-lang="fr">Exécution & outils</h4>
+        <h4 style="margin-bottom:var(--md);" data-lang="en">Execution & tools</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+          <span class="skill-tag">HubSpot (CRM/Marketing)</span>
+          <span class="skill-tag">Landing pages & HTML</span>
+          <span class="skill-tag">Marketing Automation</span>
+          <span class="skill-tag">ClickUp / PM tools</span>
+          <span class="skill-tag">Google Analytics & GSC</span>
+          <span class="skill-tag">SEO / Keyword Planner</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Hootsuite / Publer</span>
+          <span class="skill-tag">Social listening</span>
+          <span class="skill-tag">Email marketing</span>
+        </div>
+      </div>
+
+      <div style="margin-top:var(--lg);">
+        <h4 style="margin-bottom:var(--md);">Parcours</h4>
+        <p data-lang="fr">10+ ans entre agence (PR & campagnes 360) et environnements tech/marketplace. Marketing B2B, solutions tech, gestion de réputation & stratégie de marque. Couverture EMEA.</p>
+        <p data-lang="en">10+ years between agency (PR & 360 campaigns) and tech/marketplace environments. B2B marketing, tech solutions, reputation management & brand strategy. EMEA coverage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta-section">
+        <h2 data-lang="fr">Discutons de vos objectifs</h2>
+        <h2 data-lang="en">Let's discuss your objectives</h2>
+        <p class="lead" style="color:rgba(255,255,255,.9);" data-lang="fr">
+          Vous avez un projet de communication, un lancement produit ou un besoin de repositionnement ? Échangeons sur vos enjeux et objectifs. Je travaille en formats flexibles selon vos contraintes : mission express, package structurant ou accompagnement au long cours.
+        </p>
+        <p class="lead" style="color:rgba(255,255,255,.9);" data-lang="en">
+          Do you have a communication project, product launch or repositioning need? Let's discuss your challenges and objectives. I work in flexible formats according to your constraints: express mission, structuring package or long-term support.
+        </p>
+        <div class="cta-group" style="justify-content:center">
+          <a href="https://calendly.com/gallouch-zakaria/30-min-consultation" target="_blank" class="btn btn-primary">
+            <span data-lang="fr">Planifier un échange</span>
+            <span data-lang="en">Schedule a call</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="https://yti.my.canva.site/zg-portfolio" target="_blank" class="btn btn-secondary" style="background:#fff;border:1px solid rgba(255,255,255,.3)">
+            <span data-lang="fr">Recevoir le portfolio</span>
+            <span data-lang="en">Get the portfolio</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://linkedin.com/in/zakaria-gallouch" target="_blank" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+      <p style="color:var(--text-tertiary);font-size:.875rem;margin-bottom:.5rem;">
+        <strong>Zakaria Gallouch</strong> — <span data-lang="fr">Consultant communication stratégique & marketing digital</span><span data-lang="en">Strategic communications & digital marketing consultant</span>
+      </p>
+      <p style="color:var(--text-tertiary);font-size:.8125rem;">
+        <span data-lang="fr">Disponible pour missions freelance · Casablanca, Maroc & Remote</span>
+        <span data-lang="en">Available for freelance missions · Casablanca, Morocco & Remote</span>
+      </p>
+    </div>
+  </footer>
+
+<script>
+function switchLang(lang) {
+  document.documentElement.lang = lang;
+  const btnFr = document.getElementById("btn-fr");
+  const btnEn = document.getElementById("btn-en");
+  if (lang === "fr") {
+    btnFr.style.background = "var(--primary)";
+    btnFr.style.color = "#fff";
+    btnEn.style.background = "transparent";
+    btnEn.style.color = "var(--text-secondary)";
+  } else {
+    btnEn.style.background = "var(--primary)";
+    btnEn.style.color = "#fff";
+    btnFr.style.background = "transparent";
+    btnFr.style.color = "var(--text-secondary)";
+  }
+  localStorage.setItem('preferred-language', lang);
+}
+
+// Load saved language preference
+const savedLang = localStorage.getItem('preferred-language');
+if (savedLang) {
+  switchLang(savedLang);
+}
+</script>
+
+</body>
+</html>
